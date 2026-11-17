@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="OOP_Lab1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OOP_Lab1"
+    Title="SheetFlow"
+    Shell.BackgroundColor="#202020"
+    Shell.TitleColor="#FFFFFF"
+    Shell.ForegroundColor="#FFFFFF">
+
+    <ShellContent
+        Title="Електронна таблиця"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+</Shell>

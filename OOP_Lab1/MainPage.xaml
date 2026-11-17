@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="OOP_Lab1.MainPage"
+    BackgroundColor="#202020">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#454545" />
+            <Setter Property="TextColor" Value="#FFFFFF" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Padding" Value="14,10" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid Padding="24"
+          RowDefinitions="Auto,Auto,Auto,*"
+          RowSpacing="16">
+
+        <VerticalStackLayout Spacing="6">
+            <Label Text="SheetFlow"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   TextColor="White" />
+
+            <Label Text="Електронна таблиця · Варіант 72"
+                   FontSize="14"
+                   TextColor="#B0B0B0" />
+        </VerticalStackLayout>
+
+        <ScrollView Grid.Row="1"
+                    Orientation="Horizontal">
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Підключити Drive"
+                Clicked="ConnectGoogleDrive_Clicked" />
+
+                <Button Text="Зберегти в Drive" 
+                Clicked="SaveGoogleDrive_Clicked" />
+
+                <Button Text="Відкрити з Drive"
+                Clicked="OpenGoogleDrive_Clicked" />
+
+                <Button Text="+ Рядок" Clicked="AddRow_Clicked" />
+                <Button Text="+ Стовпець" Clicked="AddColumn_Clicked" />
+                <Button Text="Видалити рядок" Clicked="DeleteRow_Clicked" />
+                <Button Text="Видалити стовпець" Clicked="DeleteColumn_Clicked" />
+
+                <Button x:Name="ViewModeButton"
+                        Text="Показати значення"
+                        Clicked="ViewModeButton_Clicked" />
+
+                <Button Text="Перевірити"
+                        Clicked="ValidateButton_Clicked" />
+
+                <Button Text="Зберегти"
+                        Clicked="SaveButton_Clicked" />
+
+                <Button Text="Відкрити"
+                        Clicked="OpenButton_Clicked" />
+
+                <Button Text="Довідка"
+                        Clicked="HelpButton_Clicked" />
+
+            </HorizontalStackLayout>
+        </ScrollView>
+
+        <Grid Grid.Row="2"
+              ColumnDefinitions="75,*"
+              ColumnSpacing="10">
+
+            <Border BackgroundColor="#454545"
+                    StrokeThickness="0"
+                    Padding="10">
+
+                <Label x:Name="SelectedCellLabel"
+                       Text="A1"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+
+            </Border>
+
+            <Entry x:Name="FormulaInput"
+                   Grid.Column="1"
+                   Placeholder="Введіть вираз..."
+                   BackgroundColor="#383838"
+                   TextColor="White"
+                   PlaceholderColor="#94A3B8"   
+                   TextChanged="FormulaInput_TextChanged" />
+
+        </Grid>
+
+
+        <Border Grid.Row="3"
+                BackgroundColor="#2B2B2B"
+                Stroke="#505050"
+                StrokeThickness="1"
+                Padding="16">
+
+            <ScrollView Orientation="Both">
+                <Grid x:Name="SheetGrid"
+                      HorizontalOptions="Start"
+                      VerticalOptions="Start" />
+            </ScrollView>
+        </Border>
+
+        <Button x:Name="CounterBtn"
+                IsVisible="False" />
+
+    </Grid>
+</ContentPage>
